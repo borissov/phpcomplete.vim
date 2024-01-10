@@ -1163,8 +1163,8 @@ endfunction " }}}
 function! s:readfileToTmpbuffer(file) " {{{
 	let popup_id = popup_create(readfile(a:file), {'hidden': v:true})
 	call win_execute(popup_id, 'normal! G')
-	call win_execute(popup_id, 'syntax enable')
-	call win_execute(popup_id, 'set ft=phpcompletetempbuffer')
+	"call win_execute(popup_id, 'syntax enable')
+	"call win_execute(popup_id, 'set ft=phpcompletetempbuffer')
 	return popup_id
 endfunction " }}}
 
@@ -2363,8 +2363,8 @@ function! phpcomplete#GetClassContentsStructure(file_path, file_lines, class_nam
 	let full_file_path = fnamemodify(a:file_path, ':p')
 	let result = []
 	let popup_id = popup_create(a:file_lines, {'hidden': v:true})
-    call win_execute(popup_id, 'syntax on')
-	call win_execute(popup_id, 'set ft=phpcompletetempbuffer')
+    	"call win_execute(popup_id, 'syntax on')
+	"call win_execute(popup_id, 'set ft=phpcompletetempbuffer')
 
 	call win_execute(popup_id, 'call search(''\c\(class\|interface\|trait\)\_s\+'.a:class_name.'\(\>\|$\)'')')
 	call win_execute(popup_id, "let cfline = line('.')")
@@ -2807,8 +2807,8 @@ endfunction
 
 function! phpcomplete#GetCurrentNameSpace(file_lines) " {{{
 	let popup_id = popup_create(a:file_lines, {'hidden': v:true})
-	call win_execute(popup_id, 'syntax enable')
-	call win_execute(popup_id, 'set ft=phpcompletetempbuffer')
+	"call win_execute(popup_id, 'syntax enable')
+	"call win_execute(popup_id, 'set ft=phpcompletetempbuffer')
 	call win_execute(popup_id, 'normal! G')
 
 	" clear out classes, functions and other blocks
